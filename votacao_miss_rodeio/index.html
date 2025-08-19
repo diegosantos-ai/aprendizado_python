@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Votação - Miss do Rodeio</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { margin-bottom: 0.5em; }
+        section { margin-bottom: 2em; }
+        label { display: block; margin-top: 0.5em; }
+        input, textarea, select { width: 100%; max-width: 400px; }
+        .candidate-list { display: flex; flex-wrap: wrap; gap: 20px; }
+        .candidate { border: 1px solid #ccc; padding: 10px; width: 200px; }
+        .candidate img { width: 100%; height: auto; }
+        .btn { margin-top: 1em; padding: 0.5em 1em; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Miss do Rodeio</h1>
+        <div id="evento-info">
+            <!-- Informações do evento serão inseridas dinamicamente -->
+            <p><strong>Data:</strong> 01/10/2024 - 05/10/2024</p>
+            <p><strong>Local:</strong> Parque de Exposições</p>
+            <img src="banner.jpg" alt="Banner do evento" style="max-width:100%;height:auto;" />
+            <p><a href="#">Site oficial</a> | <a href="#">Instagram</a></p>
+        </div>
+    </header>
+
+    <section id="lista-candidatas">
+        <h2>Candidatas</h2>
+        <div class="candidate-list">
+            <div class="candidate">
+                <img src="candidata1.jpg" alt="Candidata 1" />
+                <h3>Maria</h3>
+                <p>Descrição curta da Maria.</p>
+            </div>
+            <div class="candidate">
+                <img src="candidata2.jpg" alt="Candidata 2" />
+                <h3>Ana</h3>
+                <p>Descrição curta da Ana.</p>
+            </div>
+            <!-- Outras candidatas -->
+        </div>
+    </section>
+
+    <section id="votacao">
+        <h2>Vote na sua candidata</h2>
+        <form>
+            <label for="candidata">Candidata</label>
+            <select id="candidata" name="candidata" required>
+                <option value="">Selecione</option>
+                <option value="maria">Maria</option>
+                <option value="ana">Ana</option>
+            </select>
+
+            <label for="nome">Seu nome</label>
+            <input id="nome" name="nome" type="text" required />
+
+            <label for="cpf">CPF</label>
+            <input id="cpf" name="cpf" type="text" required />
+
+            <label for="telefone">Telefone (opcional)</label>
+            <input id="telefone" name="telefone" type="tel" />
+
+            <label for="fotos">Fotos da candidata (opcional, até 3)</label>
+            <input id="fotos" name="fotos" type="file" accept="image/png, image/jpeg" multiple />
+
+            <div class="captcha">
+                <label for="captcha">Digite o código: 1234</label>
+                <input id="captcha" name="captcha" type="text" required />
+            </div>
+
+            <button class="btn" type="submit">Confirmar voto</button>
+        </form>
+        <p id="mensagem-sucesso" style="display:none;">Voto computado</p>
+        <p id="mensagem-erro" style="display:none;">Este CPF já votou.</p>
+        <p id="mensagem-encerrado" style="display:none;">Votação encerrada.</p>
+    </section>
+</body>
+</html>
